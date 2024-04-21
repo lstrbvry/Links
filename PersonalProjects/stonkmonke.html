@@ -108,6 +108,12 @@
 				box-shadow: 0 0 13px 3px gray;
 				overflow-y: auto;
 				max-height: 731.66px;
+				image-rendering: crisp-edges;
+				image-rendering: -moz-crisp-edges; /* Firefox */
+				image-rendering: -o-crisp-edges; /* Opera */
+				image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+				-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+				/*code copied from stack overflow*/
 			}
 
 			.left-side {
