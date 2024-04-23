@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Tic Tac Toe - PVE</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: 0;
+				width: 100%;
+			}
+			.main-container {
+				max-width: 610px;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				margin: auto;
+				/* gap: 3px; */
+			}
+			button {
+				border: none;
+				background-color: unset;
+				font-size: 89px;
+				padding: 21px;
+				border: solid black 3px;
+				
+			}
+			body{
+				padding-top: 34px;
+			}
+			.footer {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				text-align: center;
+			}
+			.no-border{
+				border: unset;
+			}
+			.no-border-left{
+				border-left: unset;
+			}
+			.no-border-right{
+				border-right: unset;
+			}
+			.no-border-top{
+				border-top: unset;
+			}
+			.no-border-bot{
+				border-bottom: unset;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main-container">
+				<button class="no-border">-</button>
+				<button class="no-border-top">-</button>
+				<button class="no-border">-</button>
+				<button class="no-border-left">-</button>
+				<button class="no-border">-</button>
+				<button class="no-border-right">-</button>
+				<button class="no-border">-</button>
+				<button class="no-border-bot">-</button>
+				<button class="no-border">-</button>
+			</div>
+		</div>
+		<div class="footer">
+			This is the most difficult project so far
+			<p>Not the smartest algorithm though...computer just smashes random moves</p>
+		</div>
+		<script>
+			let array = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+			let winning = [
+				[0, 1, 2],
+				[3, 4, 5],
+				[6, 7, 8],
+				[0, 3, 6],
+				[1, 4, 7],
+				[2, 5, 8],
+				[0, 4, 8],
+				[2, 4, 6],
+			];
+			let clicked = [];
+			let playerMove = "X";
+			let compturn = false;
+			const buttons = document.querySelectorAll("button");
+			buttons.forEach((button, i) => {
+				const index = i;
+				button.addEventListener("click", () => {
+					if (button.innerHTML === "-") {
+						button.innerText = playerMove;
+						array[index] = 4;
+						compturn = true;
+						checkWins();
+					}
+					if (compturn === true) {
+						const computerMove = computerMoves();
+						buttons[computerMove].innerText = "O";
+						array[computerMove] = 1;
+						checkWins();
+						compturn = false;
+					}
+				});
+			});
+
+			function checkWins() {
+				winning.forEach((value) => {
+					let sumResult = 0;
+					value.forEach((individual) => {
+						const value = array[individual];
+						sumResult += value;
+					});
+					const allNonZero = array.every((value) => value !== 0);
+					if (sumResult === 3 || sumResult === 12) {
+						compturn = false;
+						if (sumResult === 12) {
+							alert("Player X wins!");
+						} else if (sumResult === 3) {
+							alert("Player O wins!");
+						}
+						for (let i = 0; i < array.length; i++) {
+							array[i] = 0;
+						}
+						console.log(array);
+						setTimeout(() => {
+							buttons.forEach((button) => {
+								button.innerHTML = "-";
+							});
+						}, 200);
+					} else if (allNonZero) {
+						alert("Draw!");
+						compturn = false;
+						for (let i = 0; i < array.length; i++) {
+							array[i] = 0;
+						}
+					
+						setTimeout(()=>{
+							buttons.forEach((button) => {
+							button.innerHTML = "-";
+						});
+						}, 200)
+						
+					}
+					return sumResult;
+				});
+			}
+
+			function computerMoves() {
+				let randomArray = [];
+				for (let i = 0; i < array.length; i++) {
+					const value = array[i];
+					if (value === 0) {
+						randomArray.push(i);
+					}
+				}
+
+				const computerMoves =
+					randomArray[Math.floor(Math.random() * randomArray.length)];
+				return computerMoves;
+			}
+		</script>
+	</body>
+</html>
