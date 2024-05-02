@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Notebook Version 2</title>
+		<style>
+			* {
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			li {
+				list-style-type: none;
+				display: block;
+			}
+			a {
+				text-decoration: none;
+				color: black;
+			}
+			h2 {
+				margin-block: 8px;
+			}
+			button {
+				cursor: pointer;
+				font-size: 21px;
+				padding: 8px;
+			}
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				padding: 21px;
+			}
+			.container {
+				max-width: 1234px;
+				margin: auto;
+			}
+			.main-container {
+				margin-block: 21px;
+			}
+			.title {
+				text-align: center;
+			}
+			.notebook {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+				gap: 15px;
+			}
+			.hide-edit,
+			.hide-save {
+				display: none;
+			}
+			.note-box {
+				min-height: 200px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				box-shadow: 3px 3px 5px #555;
+				border-radius: 8px;
+				background-color: white;
+				font-size: 21px;
+			}
+
+			/* .notebook > :nth-child(3n + 1) > .note-title {
+				background-color: lightslategray;
+				flex: 1;
+			} */
+			/* .notebook > :nth-child(3n + 2) > .note-title {
+				background-color: slategray;
+				flex: 1;
+			}
+			.notebook > :nth-child(3n + 3) > .note-title {
+				background-color: rgb(255, 131, 152);
+				flex: 1;
+			} */
+
+			.note-title {
+				border-radius: 8px 8px 0 0;
+				color: white;
+				text-align: center;
+				font-family: monospace;
+				font-size: 21px;
+				padding: 13px;
+				background-color: rgba(128, 128, 128, 0.712);
+				font-weight: bold;
+			}
+			.note-description {
+				flex: 1;
+				padding: 13px;
+				padding-inline: 34px;
+				word-wrap: break-word;
+				min-height: 100px;
+				font-family: monospace;
+			}
+			.button-container {
+				padding: 1px;
+			}
+			.search-input {
+				text-align: center;
+				border: unset;
+				font-size: 21px;
+				border-radius: 21px;
+				padding: 8px;
+				margin-block: 8px;
+				outline: none;
+			}
+			.note-date {
+				text-align: center;
+				font-size: 21px;
+				font-family: cursive;
+				padding: 2px;
+				background-color: antiquewhite;
+			}
+			header {
+				padding-inline: 21px;
+				padding-block: 8px;
+			}
+			.topic-container {
+				display: flex;
+			}
+			.Update {
+				margin-top: 2px;
+				border-radius: 0 0 8px 8px;
+				background-color: #666;
+				color: white;
+				border: none;
+				display: block;
+			}
+			.Update:hover {
+				background-color: green;
+			}
+			.Delete {
+				display: block;
+				background-color: #888;
+				color: white;
+				border: none;
+			}
+			.Delete:hover {
+				background-color: rgba(201, 22, 22, 0.76);
+			}
+			.hide-update {
+				display: none;
+			}
+			.save-button {
+				border-radius: 0 0 8px 8px;
+			}
+			.edit-area {
+				max-width: 100%;
+				border: none;
+				padding: 13px;
+				font-size: 21px;
+			}
+			.edit-area:focus {
+				outline: none;
+			}
+			.input-topic {
+				font-size: 21px;
+				padding: 13px;
+			}
+			.input-topic:focus {
+				outline: none;
+			}
+			.textarea {
+				font-size: 21px;
+				padding: 13px;
+				resize: none;
+			}
+			textarea:focus {
+				outline: none;
+			}
+			.add {
+				font-size: 21px;
+				padding: 8px;
+			}
+			.nav {
+				max-width: 300px;
+				display: flex;
+				justify-content: flex-start;
+				column-gap: 13px;
+				margin-bottom: 13px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<nav>
+					<ul class="nav">
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="https://lstrbvry.github.io/Links/">Links</a></li>
+					</ul>
+				</nav>
+				<input
+					type="search"
+					name=""
+					id=""
+					placeholder="Search - Not Functional ╰(● ⋏ ●)╯"
+					class="search-input" />
+				<h1 class="title">Notebook <sup>2</sup></h1>
+			</header>
+			<div class="main-container">
+				<h2>Topic</h2>
+				<div class="topic-container">
+					<input type="text" class="input-topic js-input-topic" />
+				</div>
+				<h2>Description</h2>
+				<textarea
+					name=""
+					id=""
+					cols="30"
+					rows="9"
+					class="textarea js-textarea"></textarea>
+				<button class="add js-add-button">Add</button>
+			</div>
+			<div class="notebook"></div>
+		</div>
+		<script>
+			// Create a new Date object
+			let currentDate = new Date();
+
+			// Get the current year, month, and day
+			let year = currentDate.getFullYear();
+			let month = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1 to get the actual month
+			let day = currentDate.getDate();
+
+			// Display the current date
+			let notes = JSON.parse(localStorage.getItem("notes")) || [
+				{ id: 0, topic: Lester, date: 2024 - 5 - 2, description: "Hi" },
+			];
+			function displayHTML() {
+				let codeHTML = "";
+				notes.forEach((note) => {
+					codeHTML += `<div class="note-box">
+				<div class="note-title">${note.topic}</div>
+				<div class="note-date">${note.date}</div>
+				<div class="note-description">${note.description}</div>
+			    <div class = "button-container">
+				<button class="Delete" data-topic-id = "${note.id}">Delete</button>
+				<button class="Update" data-topic-id = "${note.id}">Update</button>
+				<textarea class = "edit-area hide-edit js-update-area" data-topic-id = "${note.id}"></textarea>
+				<button class = "save-button hide-save js-save-button"  data-topic-id = "${note.id}">Save</button>
+			    </div>
+			    </div>`;
+				});
+				document.querySelector(".notebook").innerHTML = codeHTML;
+				deleteButton();
+				updateButton();
+			}
+			displayHTML();
+
+			function deleteButton() {
+				document.querySelectorAll(".Delete").forEach((button) => {
+					button.addEventListener("click", (item) => {
+						const noteID = Number(event.target.dataset.topicId);
+						deleteObject(noteID);
+						displayHTML();
+						saveToStorage();
+					});
+				});
+			}
+			function updateButton() {
+				document.querySelectorAll(".Update").forEach((button) => {
+					button.addEventListener("click", (item) => {
+						const noteID = Number(event.target.dataset.topicId);
+						hideUpdate(noteID);
+						showUpdateArea(noteID);
+						showSaveButton(noteID);
+						saveEdit(noteID);
+					});
+				});
+			}
+			function deleteObject(noteID) {
+				let newNote = [];
+				notes.forEach((object) => {
+					if (object.id !== noteID) {
+						newNote.push(object);
+					}
+				});
+				notes = newNote;
+			}
+			function addObject() {
+				const topic = document.querySelector(".js-input-topic").value;
+				const description = document.querySelector(".js-textarea").value;
+				const dates = `${year}-${month}-${day}`;
+				let id = 1;
+				notes.forEach((note) => {
+					id += note.id;
+				});
+				notes.push({
+					id: id,
+					topic: topic,
+					date: dates,
+					description: description,
+				});
+			}
+			const addButton = document.querySelector(".js-add-button");
+			addButton.addEventListener("click", () => {
+				addObject();
+				displayHTML();
+				saveToStorage();
+				document.querySelector(".input-topic").value = "";
+				document.querySelector(".textarea").value = "";
+			});
+
+			function showUpdateArea(noteID) {
+				document.querySelectorAll(".hide-edit").forEach((textarea) => {
+					const textareaID = Number(textarea.dataset.topicId);
+					if (textareaID === noteID) {
+						textarea.classList.remove("hide-edit");
+						notes.forEach((object) => {
+							if (object.id === noteID) {
+								textarea.value = object.description;
+							}
+						});
+					}
+				});
+			}
+			function showSaveButton(noteID) {
+				document.querySelectorAll(".hide-save").forEach((button) => {
+					const saveID = Number(button.dataset.topicId);
+					if (saveID === noteID) {
+						button.classList.remove("hide-save");
+					}
+				});
+			}
+			function saveEdit(noteID) {
+				document.querySelectorAll(".js-save-button").forEach((saveButton) => {
+					saveButton.addEventListener("click", () => {
+						const saveID = Number(saveButton.dataset.topicId);
+						let objectDescription;
+						let editedText;
+
+						document.querySelectorAll(".js-update-area").forEach((textarea) => {
+							const textareaID = Number(textarea.dataset.topicId);
+							if (textareaID === saveID) {
+								editedText = textarea.value;
+							}
+						});
+						notes.forEach((object) => {
+							if (saveID === object.id) {
+								object.description = editedText;
+							}
+						});
+						displayHTML();
+						saveToStorage();
+					});
+				});
+			}
+			function saveToStorage() {
+				localStorage.setItem("notes", JSON.stringify(notes));
+			}
+			function hideUpdate(noteID) {
+				document.querySelectorAll(".Update").forEach((button) => {
+					const updateID = Number(button.dataset.topicId);
+					if (noteID === updateID) {
+						button.classList.add("hide-update");
+					}
+				});
+			}
+			document.querySelector(".textarea").addEventListener("keydown", () => {
+				if (event.key === "Enter") {
+					event.preventDefault();
+					addObject();
+					displayHTML();
+					saveToStorage();
+					document.querySelector(".input-topic").value = "";
+					document.querySelector(".textarea").value = "";
+				}
+			});
+		</script>
+	</body>
+</html>
