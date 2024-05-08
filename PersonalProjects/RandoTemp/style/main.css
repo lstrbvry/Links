@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cutive+Mono&display=swap");
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: Cutive mono;
+	padding: 13px;
+}
+h1 {
+	color: white;
+	text-align: center;
+	padding-block: 13px;
+}
+sup {
+	font-size: 8px;
+}
+.main-container {
+	margin: 89px;
+	max-width: 377px;
+	border: 1px white solid;
+	background-color: #999;
+	border-radius: 13px;
+	box-shadow: 0 0 8px 5px black;
+}
+
+.container {
+	background-color: black;
+	padding: 0 21px 21px 21px;
+	border-radius: 13px 13px 0 0;
+}
+.black {
+	border-radius: 13px;
+	padding: 13px;
+	background-color: greenyellow;
+}
+.in-symbol,
+.out-symbol,
+.humidity-symbol {
+	width: 34px;
+}
+.in-temp,
+.out-temp,
+.bottom,
+.clock,
+.humidity {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	column-gap: 13px;
+}
+.vertical {
+	display: flex;
+	flex-direction: column;
+}
+.in-temp > *,
+.out-temp > *,
+.humidity > *,
+.clock > * {
+	max-width: fit-content;
+}
+
+.value {
+	font-size: 55px;
+	font-family: anonymous pro;
+}
+
+.clock {
+	display: flex;
+	justify-content: flex-start;
+}
+.clock-value {
+	font-size: 34px;
+	font-weight: 500;
+	font-family: anonymous pro;
+}
+.clock-symbol sup {
+	font-size: 21px;
+}
+.buttons {
+	padding: 21px;
+}
+.gen-button {
+	text-align: center;
+	color: white;
+	padding: 13px;
+	background-color: #444;
+	border-radius: 21px;
+	max-width: 177px;
+	margin: auto;
+	cursor: pointer;
+}
+.climate {
+	display: flex;
+	justify-content: space-between;
+	padding: 13px;
+}
+.climate > * {
+	max-width: fit-content;
+}
+.hot,
+.cold {
+	cursor: pointer;
+	color: white;
+}
+.hot {
+	padding-inline: 8px;
+	padding-block: 5px;
+	border-radius: 5px;
+	background-color: rgba(255, 0, 0, 0.781);
+}
+.cold {
+	padding-inline: 8px;
+	padding-block: 5px;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 255, 0.808);
+}
+.active {
+	font-weight: 800;
+	box-shadow: 0 0 5px 5px azure;
+}
+.calibration-link {
+	text-align: center;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+@media (width < 375px) {
+	.clock {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	.value {
+		font-size: 34px;
+	}
+	.clock-value {
+		font-size: 21px;
+		font-weight: 500;
+	}
+	.in-temp,
+	.out-temp,
+	.humidity {
+		flex-direction: column;
+	}
+	.vertical {
+		display: flex;
+		flex-direction: row;
+		column-gap: 21px;
+	}
+	sup {
+		font-size: 21px;
+	}
+	.out-celsius,
+	.in-celsius {
+		font-size: 34px;
+	}
+	.in-temp {
+		border: 1px black solid;
+		margin-block: 3px;
+	}
+	.out-temp {
+		border: 1px black solid;
+		margin-block: 3px;
+	}
+	.in-symbol,
+	.out-symbol {
+		font-weight: 700;
+	}
+	h1 {
+		font-size: 21px;
+	}
+}

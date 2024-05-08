@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Thermo Data Generator | Thermogen</title>
+		<link rel="stylesheet" href="style/main.css" />
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="container">
+				<div class="header"><h1>Thermometer</h1></div>
+				<div class="black">
+					<div class="in-temp">
+						<div class="in-value value js-invalue">0.0</div>
+						<div class="vertical">
+							<div class="in-symbol">IN</div>
+							<div class="in-celsius"><sup>o</sup>C</div>
+						</div>
+					</div>
+					<div class="out-temp">
+						<div class="out-value value js-outvalue">0.0</div>
+						<div class="vertical">
+							<div class="out-symbol">OUT</div>
+							<div class="out-celsius"><sup>o</sup>C</div>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="clock">
+							<div class="clock-symbol"><sup class="js-ampm">AM</sup></div>
+							<div class="clock-value">
+								<span class="js-hour">5</span>:<span class="js-min">12</span>
+							</div>
+						</div>
+						<div class="humidity">
+							<div class="humidity-value value js-humidvalue">0</div>
+							<div class="vertical">
+								<div class="humidity-symbol">RH</div>
+								<div class="percent-symbol">%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="buttons">
+				<div class="climate">
+					<div class="hot">Hot</div>
+					<div class="cold">Cold</div>
+				</div>
+
+				<div class="gen-button">Generate</div>
+			</div>
+		</div>
+		<div class="calibration-link">
+			<a href="calibration.html">Calibration Certificate</a>
+		</div>
+		<script src="script/script.js"></script>
+	</body>
+</html>
