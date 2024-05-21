@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Generic Menu Card</title>
+		<link rel="stylesheet" href="style/utility.css" />
+		<link rel="stylesheet" href="style/main.css" />
+	</head>
+	<body>
+		<div class="header">
+			<h1>Generic Menu Card</h1>
+			<div><a href="about.html">About</a></div>
+		</div>
+		<div class="main">
+			<div class="left">
+				<div class="">
+					<div class="sub-title">Look-up Generic Name</div>
+					<input
+						type="text"
+						name=""
+						id=""
+						class="js-generic-search search-box" />
+					<div class="list-container">
+						<ul class="option generic value search-option">
+							<li>sample-1</li>
+							<li>sample-2</li>
+							<li>sample-3</li>
+						</ul>
+					</div>
+					<div class="js-generic-value"></div>
+				</div>
+				<div>
+					<div class="sub-title">Add Generic</div>
+					<div>
+						<input type="text" name="" id="" class="js-add-generic-input" />
+					</div>
+					<button class="js-add-generic-button">Add Generic</button>
+				</div>
+				<div>
+					<div class="sub-title">Add Brand</div>
+					<div>
+						<div>Brand Name</div>
+						<input type="text" name="" id="" class="js-add-brand" />
+					</div>
+					<div>
+						<div>Formulation</div>
+						<input type="text" name="" id="" class="js-add-brand" />
+					</div>
+					<div>
+						<div>Price</div>
+						<input type="text" name="" id="" class="js-add-brand" />
+					</div>
+					<button class="js-add-brand-button">Add Brand</button>
+				</div>
+				<div>
+					<div class="sub-title">Look-up To Delete</div>
+					<input
+						type="text"
+						name=""
+						id=""
+						class="js-generic-search search-box" />
+					<div class="list-container">
+						<ul class="option generic js-delete-generic-option search-option">
+							<li>sample-1</li>
+							<li>sample-2</li>
+							<li>sample-3</li>
+						</ul>
+					</div>
+					<div class="js-value-delete"></div>
+					<button class="js-delete-generic-button">Delete</button>
+				</div>
+			</div>
+			<div class="right">
+				<div>
+					<div>
+						<div class="sub-title">Look For Brand</div>
+						<input type="text" class="js-brand-look search-box" />
+						<div class="list-container">
+							<ul
+								class="option branded js-brand-clicked js-brand-look-options search-option">
+								<li>sample-1</li>
+								<li>sample-2</li>
+								<li>sample-3</li>
+							</ul>
+						</div>
+					</div>
+					<div class="display">
+						<div class="to-row">
+							<div>Brand-name:</div>
+							<div class="js-brand-value"></div>
+						</div>
+						<div class="to-row">
+							<div>Formulation:</div>
+							<div class="js-description-array js-description-form"></div>
+						</div>
+						<div class="to-row">
+							<div>Price:</div>
+							<div class="js-description-array js-description-price"></div>
+						</div>
+						<button class="js-delete-branded-button">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<p><a href="pdf.html">Check Table</a></p>
+		</footer>
+		<script type="module" src="javascript/main.js"></script>
+	</body>
+</html>
