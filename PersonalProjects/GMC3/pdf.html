@@ -43,6 +43,12 @@
 				display: grid;
 				grid-template-columns: 3fr 1fr 3fr;
 			}
+			.row-grid > * {
+				page-break-inside: avoid;
+			}
+			.row-grid2 > * {
+				page-break-inside: avoid;
+			}
 			.generic {
 				margin-block: 13px;
 			}
@@ -52,6 +58,7 @@
 				font-weight: bold;
 				color: white;
 				padding-block: 3px;
+				page-break-inside: avoid;
 			}
 			.footer {
 				max-width: 244px;
