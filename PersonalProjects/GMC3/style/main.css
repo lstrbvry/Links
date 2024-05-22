@@ -9,6 +9,9 @@ body {
 footer {
 	text-align: center;
 }
+input::placeholder {
+	color: whitesmoke;
+}
 button {
 	border: none;
 	display: block;
