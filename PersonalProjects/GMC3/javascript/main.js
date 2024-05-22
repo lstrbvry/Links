@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	genericSearch[0].addEventListener("input", () => {
-		searchToLookGeneric(genericSearch[0].value);
+		searchToLookGeneric(genericSearch[0].value.toLowerCase());
 		// searchToDeleteGeneric(generc.value);
 	});
 	genericSearch[1].addEventListener("input", () => {
