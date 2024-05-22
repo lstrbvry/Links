@@ -55,6 +55,7 @@ function addBrand() {
 		}
 	});
 	if (
+		genericValue !== "" &&
 		continueLoop &&
 		Number(brandArray[2].value) &&
 		!Number(brandArray[0].value)
@@ -62,13 +63,14 @@ function addBrand() {
 		product.forEach((item) => {
 			if (item.genericName === genericValue) {
 				item.description.push({
-					brandName: brandArray[0].value,
-					formulation: brandArray[1].value,
+					brandName: brandArray[0].value.toUpperCase(),
+					formulation: brandArray[1].value.toUpperCase(),
 					price: brandArray[2].value,
 				});
 				saveToStorage();
 			}
 		});
+
 		brandArray.forEach((item) => {
 			item.value = "";
 		});
@@ -89,7 +91,7 @@ function addGeneric() {
 	const inputValue = document.querySelector(".js-add-generic-input").value;
 	if (checkGenericDuplicate() === false && inputValue !== "") {
 		product.push({
-			genericName: inputValue,
+			genericName: inputValue.toUpperCase(),
 			description: [],
 		});
 		document.querySelector(".js-add-generic-input").value = "";
