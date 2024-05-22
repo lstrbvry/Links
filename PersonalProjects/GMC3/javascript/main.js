@@ -215,7 +215,7 @@ function searchToDeleteGeneric(searchValue) {
 	const allList = options.querySelectorAll("li");
 	allList.forEach((li) => {
 		li.classList.add("hide");
-		if (li.innerText.toLowerCase().includes(searchValue)) {
+		if (li.innerText.toLowerCase().includes(searchValue.toLowerCase())) {
 			li.classList.remove("hide");
 		}
 	});
@@ -225,7 +225,7 @@ function searchToLookBranded(searchValue) {
 	const allList = options.querySelectorAll("li");
 	allList.forEach((li) => {
 		li.classList.add("hide");
-		if (li.innerText.toLowerCase().includes(searchValue)) {
+		if (li.innerText.toLowerCase().includes(searchValue.toLowerCase())) {
 			li.classList.remove("hide");
 		}
 	});
