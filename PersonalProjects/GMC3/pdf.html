@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GMC Table</title>
+		<style>
+			* {
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				position: relative;
+			}
+			.generic {
+				font-weight: bold;
+			}
+			.label-value {
+				color: darkblue;
+			}
+			button {
+				background-color: unset;
+				border: unset;
+			}
+			body {
+				font-family: calibri;
+			}
+			.container {
+				max-width: 610px;
+				margin: auto;
+				box-shadow: 0 0 5px 1px gray;
+				padding: 13px;
+				margin-top: 5px;
+			}
+			.row-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				margin-block: 2px;
+				border: 1px rgba(0, 0, 0, 0.281) solid;
+				padding-inline: 5px;
+			}
+			.row-grid2 {
+				display: grid;
+				grid-template-columns: 250px 250px;
+			}
+			.generic {
+				margin-block: 13px;
+			}
+			.no-brand {
+				text-align: center;
+				background-color: crimson;
+				font-weight: bold;
+				color: white;
+				padding-block: 3px;
+			}
+			.footer {
+				max-width: 244px;
+				margin: auto;
+				margin-top: 13px;
+				background-color: rgb(74, 74, 252);
+				border-radius: 13px;
+			}
+			.footer:hover {
+				opacity: 0.5;
+			}
+			.footer:active {
+				opacity: 1;
+				background-color: darkblue;
+			}
+			.footer button {
+				color: white;
+				cursor: pointer;
+			}
+			h1 {
+				text-align: center;
+				font-size: 21px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="container"></div>
+		<div class="footer">
+			<button id="download-pdf">Download PDF</button>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+		<script type="module" src="javascript/pdf.js"></script>
+	</body>
+</html>
