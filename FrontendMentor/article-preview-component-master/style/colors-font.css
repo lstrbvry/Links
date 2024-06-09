@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+:root{
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+  --light: 300;
+  --heavy: 500;
+  --default-font-size:13px
+}
+html{
+  font-size: var(--default-font-size);
+  font-weight: var(--light);
+  font-family: Manrope;
+}
+body{
+  background-color: var(--Light-Grayish-Blue);
+}
+.main{
+  background-color:white;
+}
+h1{
+  font-weight: var(--heavy);
+  color: var(--Very-Dark-Grayish-Blue);
+  font-size: 1.2rem;
+}
+.share-container{
+  background-color:var(--Light-Grayish-Blue) ;
+}
+
+.bold{
+  font-weight: var(--heavy);
+  color: var(--Very-Dark-Grayish-Blue);
+}
+
+.date{
+  color: var(--Grayish-Blue);
+}
+.paragraph-body{
+  color: var(--Desaturated-Dark-Blue);
+}
+.share-text{
+  color: var(--Grayish-Blue);
+}

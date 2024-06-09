@@ -1,0 +1,58 @@
+:root{
+  --Triangle-size: .8rem;
+}
+.michelle-picture{
+  width: 3rem;
+  border-radius: 50%;
+}
+.share-picture{
+  object-fit: cover;
+}
+.drawer-picture{
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0 ;
+}
+.share-container{
+  border-radius: 50%;
+}
+.icon-container{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon{
+  object-fit: cover;
+}
+
+
+@media(width> 600px){
+  .drawer-picture{
+    border-radius: unset;
+    min-height: 100%;
+  }
+  .popbox2 .icon-container{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .down-arrow{
+    width: 0;
+    height: 0;
+    border-left: var(--Triangle-size) solid transparent;
+    border-right:var(--Triangle-size) solid transparent;
+    border-top: var(--Triangle-size) solid hsl(217, 19%, 35%);
+    position: absolute;
+    bottom: -.7rem;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}

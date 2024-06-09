@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- displays site properly based on user's device -->
+		<link
+			rel="stylesheet"
+			href="style/layout.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="style/picture.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="style/colors-font.css"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link
+			rel="stylesheet"
+			href="style/utility.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="style/popbox.css"
+		/>
+		<title>Frontend Mentor | Article preview component</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				opacity: 0;
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="left">
+				<img
+					src="images/drawers.jpg"
+					alt=""
+					class="drawer-picture"
+				/>
+			</div>
+			<div class="right">
+				<div class="">
+					<h1>
+						Shift the overall look and feel by adding these wonderful touches to
+						furniture in your home
+					</h1>
+				</div>
+				<div class="paragraph-body">
+					Ever been in a room and felt like something was missing? Perhaps it
+					felt slightly bare and uninviting. I’ve got some simple tips to help
+					you make any room feel complete.
+				</div>
+
+				<div class="profile">
+					<div>
+						<img
+							src="images/avatar-michelle.jpg"
+							alt=""
+							class="michelle-picture"
+						/>
+					</div>
+					<div>
+						<div class="bold">Michelle Appleton</div>
+						<div class="date">28 Jun 2020</div>
+					</div>
+
+					<div>
+						<div class="icon-container share-container">
+							<div class="popbox2 invisible">
+								<div class="down-arrow"></div>
+								<div
+									style="width: fit-content"
+									class="share-text"
+								>
+									SHARE
+								</div>
+								<div class="icon-container">
+									<a href="https://www.facebook.com/">
+										<img
+											src="images/icon-facebook.svg"
+											alt=""
+											id="icon"
+										/>
+									</a>
+								</div>
+
+								<div class="icon-container">
+									<img
+										src="images/icon-twitter.svg"
+										alt=""
+										class="icon"
+									/>
+								</div>
+								<div class="icon-container">
+									<img
+										src="images/icon-pinterest.svg"
+										alt=""
+										class="icon"
+									/>
+								</div>
+							</div>
+							<img
+								src="images/icon-share.svg"
+								alt=""
+								class="share-picture popbox-share"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="popbox invisible">
+					<div
+						style="width: fit-content"
+						class="share-text"
+					>
+						SHARE
+					</div>
+					<div class="icon-container">
+						<a href=""></a>
+						<img
+							src="images/icon-facebook.svg"
+							alt=""
+							id="icon"
+						/>
+					</div>
+
+					<div class="icon-container">
+						<img
+							src="images/icon-twitter.svg"
+							alt=""
+							class="icon"
+						/>
+					</div>
+					<div class="icon-container">
+						<img
+							src="images/icon-pinterest.svg"
+							alt=""
+							class="icon"
+						/>
+					</div>
+					<div class="icon-container">
+						<img
+							src="images/icon-share.svg"
+							alt=""
+							class="share-picture js-share-picture"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="attribution">
+			Challenge by
+			<a
+				href="https://www.frontendmentor.io?ref=challenge"
+				target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Your Name Here</a>.
+		</div>
+		<script
+			src="script/popbox.js"
+			type="module"
+		></script>
+	</body>
+</html>
